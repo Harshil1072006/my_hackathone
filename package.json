@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "wrangler": "4.166.0"
+  },
+  "name": "swap-hack",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "migrate": "wrangler d1 migrations apply DB --local",
+    "deploy": "wrangler deploy",
+    "check": "node --check src/worker.js && node --check src/event.js && node --check src/demo.js && node --check public/app.js && node --check public/ui.js && node --check public/workspace.js"
+  }
+}
