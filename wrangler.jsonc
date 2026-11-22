@@ -1,14 +1,27 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "my-hackathone",
-  "main": "src/worker.js",
-  "compatibility_date": "2026-06-15",
-  "assets": {
-    "directory": "./public",
-    "binding": "ASSETS",
-    "not_found_handling": "single-page-application",
-    "run_worker_first": ["/api/*"]
-  },
-
-  "triggers": { "crons": ["23 2 * * *"] }
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "my-hackathone",
+	"main": "src/worker.js",
+	"compatibility_date": "2026-06-15",
+	"assets": {
+		"directory": "./public",
+		"binding": "ASSETS",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": [
+			"/api/*"
+		]
+	},
+	"triggers": {
+		"crons": [
+			"23 2 * * *"
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "swap-hack",
+			"database_id": "072a49b5-857b-4248-b93a-8c5c1aed9b33",
+			"migrations_dir": "migrations"
+		}
+	]
 }
